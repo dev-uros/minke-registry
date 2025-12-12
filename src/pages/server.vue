@@ -108,7 +108,7 @@ const handleAuth = async () =>{
 
 const copyPassword = async (password: string) => {
   await handleAuth();
-  if(authResult.value){
+  if(authResult.value && authResult.value?.success){
     await writeText(password);
     toast.add({title: 'Success', description: 'Password copied to clipboard!', color: 'success'})
   }
